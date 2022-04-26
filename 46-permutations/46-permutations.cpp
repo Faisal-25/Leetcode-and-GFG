@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> ans;
-    void permutations(vector<int>&nums,vector<bool> &check,vector<int> v,int ci){
+    void permutations(vector<int>&nums,vector<bool> &check,vector<int> &v,int ci){
         //bool array of size nums.size() and apply recursive call
         if(ci == nums.size()){
             ans.push_back(v);
