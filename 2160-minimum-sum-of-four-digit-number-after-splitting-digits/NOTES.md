@@ -1,1 +1,1 @@
-​
+Idea:Convert num to string and then sort the string
