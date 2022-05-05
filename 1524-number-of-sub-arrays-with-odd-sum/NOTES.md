@@ -1,1 +1,1 @@
-​
+**Idea is to count evenSum and oddSum coz whenever we have evenSum we sum we subtract the number of oddSum subarrays from it to make it odd and when we have oddSum subarray we subtract even sum subarray from it to make it even subarray**
