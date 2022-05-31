@@ -68,9 +68,10 @@ class Solution{
    {
       if(!tree) return NULL;
       Node* newNode = new Node(tree->data);
+       newNode->random = tree->random;
       newNode->left = cloneTree(tree->left);
       newNode->right = cloneTree(tree->right);
-      newNode->random = tree->random;
+     
       return newNode;
    }
 
