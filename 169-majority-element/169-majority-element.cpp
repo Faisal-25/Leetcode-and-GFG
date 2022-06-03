@@ -9,18 +9,25 @@ public:
         return freq>n/2;
     }
     int majorityElement(vector<int>& a,int n = 0) {
-        n = a.size();
-        int count = 1;
-        int val =a[0];
-        for(int i = 0;i<n;i++){
-            if(a[i] == val)count++;
-            else count--;
-            if(count == 0){
-                val = a[i];
-                count = 1;
-            }
+       //  n = a.size();
+       //  int count = 1;
+       //  int val =a[0];
+       //  for(int i = 0;i<n;i++){
+       //      if(a[i] == val)count++;
+       //      else count--;
+       //      if(count == 0){
+       //          val = a[i];
+       //          count = 1;
+       //      }
+       //  }
+       // return isValid(a,n,val)?val:-1;
+        unordered_map<int,int> m;
+        for(int val:a){
+            m[val]++;
         }
-       return isValid(a,n,val)?val:-1;
-        
+        for(auto&[k,v]:m){
+            if(m[k]>a.size()/2)return k;
+        }
+        return -1;
     }
 };
