@@ -15,7 +15,15 @@ public:
         if(root == nullptr){
             return new TreeNode(val);
         }
-       
+        if(!root->left && !root->right){
+            if(root->val>val){
+                root->left = new TreeNode(val);
+            }
+            else{
+                root->right = new TreeNode(val);
+            }
+            return root;
+        }
         if(root->val>val){
             root->left = insertIntoBST(root->left,val);
         }
