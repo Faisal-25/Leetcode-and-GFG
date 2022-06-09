@@ -12,7 +12,7 @@
 class Solution {
 public:
     int leftMax(TreeNode*root){
-        return root?max(root->val,max(leftMax(root->left),leftMax(root->right))):INT_MIN;
+        return root->right?leftMax(root->right):root->val;
     }
     TreeNode* deleteNode(TreeNode* root, int key) {
         if(root == nullptr)return NULL;
@@ -27,8 +27,6 @@ public:
                 int lmax = leftMax(root->left);
                 root->val = lmax;
                 root->left = deleteNode(root->left,lmax);
-                
-                
             }
             else if(root->left){
                 return root->left;
