@@ -21,6 +21,7 @@ class Node {
 };
 */
 
+
 class Solution {
     public Node connect(Node root) {
         Node t1 = root;
@@ -42,3 +43,4 @@ class Solution {
         return root;
     }
 }
+    
