@@ -11,17 +11,17 @@
  */
 class Solution {
 public:
-    
+    int sum = 0;
     unordered_map<int,int> m;
     int count = 0;
     void pathSumIII(TreeNode*root,long long int sum,int targetSum){
         if(root == nullptr)return;
         sum+=root->val;
-          if(m[sum-targetSum]>0){
+      
+        if(m[sum-targetSum]>0){
             count+=m[sum-targetSum];
         }
-        m[sum]++;
-      
+          m[sum]++;
         pathSumIII(root->left, sum,targetSum);
         pathSumIII(root->right,sum,targetSum);
     
