@@ -9,10 +9,10 @@ public:
         for(int i = 0;i<gas.size();i++){
             sumFuel+=gas[i];
             sumGas+=cost[i];
-            sum=(sum+ gas[i] -cost[i]);
-            cout<<sum<<" ";
+            sum+=(gas[i] -cost[i]);
+         
             if(sum>=0 && ans == -1){
-                cout<<sum<<endl;
+               
                 ans = i;
             }
             else if(sum<0){
