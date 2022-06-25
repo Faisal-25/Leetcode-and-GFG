@@ -101,8 +101,10 @@ class Solution{
     }
     int maxPathSum(Node* root)
     {
-        maxSumPath(root,0);
-        return maxSum;
+       if(root == nullptr)return 0;
+       int leftAns = maxPathSum(root->left);
+       int rightAns = maxPathSum(root->right);
+       return max(leftAns+root->data, rightAns+root->data);
     }
 };
 
