@@ -5,10 +5,10 @@ public:
         for(vector<int> v:edges){
             count[v[0]]++;
             count[v[1]]++;
+            if(count[v[0]] == edges.size())return v[0];
+            if(count[v[1]] == edges.size())return v[1];
         }
-       for(int i = 0;i<edges.size()+2;i++){
-           if(count[i] == edges.size())return i;
-       }
+     
         return -1;
     }
 };
