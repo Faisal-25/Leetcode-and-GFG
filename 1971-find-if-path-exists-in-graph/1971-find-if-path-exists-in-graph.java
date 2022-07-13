@@ -3,7 +3,7 @@ class Solution {
     public boolean validPath(int n, int[][] edges, int start, int end) {
         if(start == end) return  true;
         
-        Map<Integer,List<Integer>> graph = new HashMap();
+        HashMap<Integer,List<Integer>> graph = new HashMap();
         boolean[] visited = new boolean[n];
         
         for(int i = 0 ; i < n ; i++) graph.put(i, new ArrayList());
