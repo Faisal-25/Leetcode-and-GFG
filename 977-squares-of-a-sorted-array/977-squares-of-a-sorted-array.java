@@ -6,7 +6,7 @@ class Solution {
         int hi = n-1;
         int idx = n-1;
         while(lo<=hi){
-            if(Math.abs(nums[lo])>Math.abs(nums[hi])){
+            if(nums[lo]*nums[lo]>nums[hi]*nums[hi]){
                 arr[idx] = nums[lo]*nums[lo];
                 idx--;
                 lo++;
