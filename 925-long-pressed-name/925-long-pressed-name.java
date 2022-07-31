@@ -1,28 +1,33 @@
 class Solution {
-  
-    public boolean isLongPressedName(String name, String typed) {
-        if(name.length()>typed.length())return false;
+  public  boolean solve(String o,String f){
+        if(f.length()<o.length())return false;
         int i = 0;
         int j = 0;
-        while(i<name.length()&&j<typed.length()){
-            if(name.charAt(i) == typed.charAt(j)){
+        while(i<o.length()&&j<f.length()){
+            if(o.charAt(i)!=f.charAt(j)){
+                if(i>0 && o.charAt(i-1) == f.charAt(j)){
+                    
+            		j++;
+       			 }
+                else{
+                    return false;
+                }
+            }
+            else{
                 i++;
                 j++;
             }
-            else if(i>0 && name.charAt(i-1) == typed.charAt(j)){
-              j++;
-            }
-            else{
-              return false;
-            }
         }
-      
-        while(j<typed.length()){
-            if(typed.charAt(j)!=name.charAt(i-1)){
+        while(j<f.length()){
+            if(o.charAt(i-1)!=f.charAt(j)){
                 return false;
             }
-            j++;
+			j++;
         }
-        return i == name.length();
+        return i == o.length();
+    }
+
+    public boolean isLongPressedName(String name, String typed) {
+        return solve(name,typed);
     }
 }
