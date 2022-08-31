@@ -7,7 +7,7 @@ public:
         for(int i = 1;i<n;i++){
             int nbsp = max(ossp-prices[i],obsp);
             int nssp = max(obsp+prices[i]-fee,ossp);
-            cout<<nbsp<<" "<<nssp<<endl;
+     
             ossp = nssp;
             obsp = nbsp;
         }
