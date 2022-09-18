@@ -25,10 +25,10 @@ public:
         if(head == tail)return nullptr;
         ListNode*temp = head;
         ListNode*mid = head;
-        if(head->next == tail){
-            TreeNode*root = new TreeNode(head->val);
-            return root;
-        }
+        // if(head->next == tail){
+        //     TreeNode*root = new TreeNode(head->val);
+        //     return root;
+        // }
         while(temp!=tail && temp->next!= tail){
             mid = mid->next;
             temp = temp->next->next;
