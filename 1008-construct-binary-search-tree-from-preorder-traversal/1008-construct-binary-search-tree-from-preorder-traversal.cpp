@@ -12,25 +12,19 @@
 class Solution {
 public:
     int i = 0;
-    TreeNode* createBST(vector<int>&preorder, int min, int max){
-        
-        if(i<preorder.size() && preorder[i]>min && preorder[i]<max){
-            TreeNode*root = new TreeNode(preorder[i]);
-            i++;
-            root->left = createBST(preorder,min,root->val);
-          
-           
-            
-                root->right = createBST(preorder,root->val,max);
-            
-            return root;
-        }
-        else{
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        return helper(preorder, INT_MAX);
+    }
+    TreeNode*helper(vector<int>&preorder, int bound){
+        if(i==preorder.size()||preorder[i]>bound  ){
             return nullptr;
         }
+        TreeNode*root = new TreeNode(preorder[i]);
+        i++;
+        root->left = helper(preorder,root->val);
+        cout<<root->val<< " ";
+        root->right = helper(preorder, bound);
         
-    }
-    TreeNode* bstFromPreorder(vector<int>& preorder) {
-        return createBST(preorder,INT_MIN,INT_MAX);
+        return root;
     }
 };
