@@ -1,16 +1,13 @@
 class Solution {
     public int maxProfit(int[] prices) {
-        int sd = 0, bd = 0;
-        int prof = 0;
+         int ossp = 0;
+        int obsp = -prices[0];
         for(int i = 1;i<prices.length;i++){
-            if(prices[i]>prices[i-1]){
-                sd++;
-            }else{
-                prof += prices[sd]-prices[bd];
-                bd= sd = i;
-            }
+            int nbsp = Math.max(ossp-prices[i], obsp);
+            int nssp = Math.max(prices[i]+obsp, ossp);
+            obsp = nbsp;
+            ossp = nssp;
         }
-        prof += prices[sd]-prices[bd];
-        return prof;
+        return ossp;
     }
 }
