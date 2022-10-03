@@ -1,24 +1,31 @@
 class Solution {
-public:
-    int minCost(string s, vector<int>& neededTime) {
-        //ababaaaccedghh
-        int sum_cost = 0;
-        int max_cost = 0;
-      
-        int res = 0;
-        for(int i = 0;i<s.size();i++){
-            if(i>0 && s[i] != s[i-1]){
-                res+=sum_cost-max_cost;
-                sum_cost = 0;
-                max_cost = 0;
-                
+    public:
+struct node{
+        char c;
+        int val;
+    };
+    
+    int minCost(string s, vector<int>& cost) {
+        stack<node> stack;
+        int n=s.size(), result=0;
+        
+        for(int i=0; i<n; i++){
+            if(!stack.empty() && stack.top().c==s[i]){
+                if(stack.top().val<cost[i]){
+                    result+=stack.top().val;
+                    stack.pop();
+                    stack.push({s[i], cost[i]});
+                }
+                else{
+                    result+=cost[i];
+                }
             }
-                
-            sum_cost+=neededTime[i];
-                max_cost = max(neededTime[i], max_cost);
-            
+            else{
+                stack.push({s[i], cost[i]});
+            }
         }
-        res+=sum_cost-max_cost;
-        return res;
+        
+        return result;
+
     }
 };
