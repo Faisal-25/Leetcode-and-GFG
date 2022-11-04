@@ -5,7 +5,7 @@ public:
         int partitions = 1;
         int prev = 0;
         for(int cur = 1;cur<nums.size();cur++){
-            cout<<nums[cur] -  nums[prev]<<endl;
+       
             if(nums[cur]-nums[prev] > k){
                 
                 partitions++;
